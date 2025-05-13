@@ -12,7 +12,7 @@ public abstract class ProductBase implements Product {
 
     ActivityLogger.getInstance().logActivity(
       String.format("Created new product: %s", this.getDescription())
-    );    
+    );
   }
 
   @Override

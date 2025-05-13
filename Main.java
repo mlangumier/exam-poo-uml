@@ -3,11 +3,25 @@ import java.util.ArrayList;
 public class Main {
   public static void main(String[] args) {
 
-    //--- Create products
+    //--- Setup observers
+    
+    Inventory inventory = new Inventory();
+    Observer salesService = new SalesService();
+    Observer warehouseService = new WarehouseService();
 
-    ProductFactory.createProduct("E1", "IPhone XS", 600, Category.ELECTRONIC);
-    ProductFactory.createProduct("V1", "Bonnet", 10, Category.CLOTHING);
-    ProductFactory.createProduct("A1", "Pain", 1, Category.FOOD);
+    inventory.registerObserver(salesService);
+    inventory.registerObserver(warehouseService);
+
+    //--- Create products & add them to the inventory
+
+    ProductBase iphone = ProductFactory.createProduct("E1", "IPhone XS", 600, Category.ELECTRONIC);
+    inventory.addProduct(iphone);
+
+    ProductBase bonnet = ProductFactory.createProduct("V1", "Bonnet", 10, Category.CLOTHING);
+    inventory.addProduct(bonnet);
+    
+    ProductBase pain = ProductFactory.createProduct("A1", "Pain", 1, Category.FOOD);
+    inventory.addProduct(pain);
 
     //--- Display logs
 
