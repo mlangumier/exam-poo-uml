@@ -2,14 +2,16 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
-    //--- 
-    ActivityLogger.getInstance().logActivity("Creating first log");
-    ActivityLogger.getInstance().logActivity("Doing something else");
 
+    //--- Create products
+
+    ProductFactory.createProduct("E1", "IPhone XS", 600, Category.ELECTRONIC);
+    ProductFactory.createProduct("V1", "Bonnet", 10, Category.CLOTHING);
+    ProductFactory.createProduct("A1", "Pain", 1, Category.FOOD);
 
     //--- Display logs
 
-    System.out.println("----- LOGS -----");
+    System.out.println("----- ACTIVITY LOGS -----");
 
     ArrayList<String> logs = ActivityLogger.getInstance().getActivityLog();
 
